@@ -10,13 +10,13 @@ const firebaseConfig = {
   measurementId: "G-9N4657P07D"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-console.log("🔥 Firebase caricato:", firebase.apps.length > 0);
-console.log("🔗 Connessione a Firestore...");
+// 🔥 Inizializza Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
+// Debug: verifica che Firebase sia stato caricato
+console.log("🔥 Firebase caricato con successo:", firebase.apps.length > 0);
 
 // Lista dei partecipanti con punteggio iniziale
 let partecipanti = [];
