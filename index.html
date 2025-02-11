@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo Sfidanti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gestione Torneo</h1>
+
+    <!-- Sezione per mostrare la sfida -->
+    <div class="sfida">
+        <h2>Sfida Attuale</h2>
+        <div id="partecipante1" class="partecipante"></div>
+        <div id="partecipante2" class="partecipante"></div>
+        <button id="vincitore1">Vince Partecipante 1</button>
+        <button id="vincitore2">Vince Partecipante 2</button>
+    </div>
+
+    <!-- Sezione classifica -->
+    <div class="classifica">
+        <h2>Classifica</h2>
+        <table id="classificaTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Punteggio</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
