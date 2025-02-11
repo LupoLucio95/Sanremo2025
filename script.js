@@ -14,6 +14,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+console.log("🔥 Firebase caricato:", firebase.apps.length > 0);
+console.log("🔗 Connessione a Firestore...");
+
+
 // Lista dei partecipanti con punteggio iniziale
 let partecipanti = [];
 
