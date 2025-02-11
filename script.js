@@ -89,3 +89,58 @@ document.getElementById("vincitore2").addEventListener("click", () => {
 // 🔄 Inizializza il sito
 caricaClassifica();
 generaSfida();
+
+// Funzione per creare la classifica se non esiste
+function creaClassifica() {
+    db.collection("classifica").get().then((snapshot) => {
+        if (snapshot.empty) {
+            console.log("La classifica non esiste. Creazione in corso...");
+            let partecipantiIniziali = [
+                { nome: "Achille Lauro", punteggio: 1000 },
+                { nome: "Gaia", punteggio: 1000 },
+                { nome: "Coma_Cose", punteggio: 1000 },
+                { nome: "Francesco Gabbani", punteggio: 1000 },
+                { nome: "Willie Peyote", punteggio: 1000 },
+                { nome: "Noemi", punteggio: 1000 },
+                { nome: "Rkomi", punteggio: 1000 },
+                { nome: "Modà", punteggio: 1000 },
+                { nome: "Rose Villain", punteggio: 1000 },
+                { nome: "Brunori Sas", punteggio: 1000 },
+                { nome: "Irama", punteggio: 1000 },
+                { nome: "Clara", punteggio: 1000 },
+                { nome: "Cristicchi", punteggio: 1000 },
+                { nome: "MArcella Bella", punteggio: 1000 },
+                { nome: "Giorgia", punteggio: 1000 },
+                { nome: "Rose Villain", punteggio: 1000 },
+                { nome: "Olly", punteggio: 1000 },
+                { nome: "Elodie", punteggio: 1000 },
+                { nome: "Guè", punteggio: 1000 },
+                { nome: "MAssimo Ranieri", punteggio: 1000 },
+                { nome: "Tony Effe", punteggio: 1000 },
+                { nome: "Brancale", punteggio: 1000 },
+                { nome: "Brunori Sas", punteggio: 1000 },
+                { nome: "Modà", punteggio: 1000 },
+                { nome: "Lucio Corsi", punteggio: 1000 },
+                { nome: "Fedez", punteggio: 1000 },
+                { nome: "Bresh", punteggio: 1000 },
+                { nome: "Sarah Toscano", punteggio: 1000 },
+                { nome: "Joan Thiele", punteggio: 1000 },
+                { nome: "Rocco Hunt", punteggio: 1000 },
+                { nome: "Francesca Michielin", punteggio: 1000 },
+                { nome: "The Kolors", punteggio: 1000 }
+            ];
+
+            partecipantiIniziali.forEach(partecipante => {
+                db.collection("classifica").add(partecipante);
+            });
+
+            console.log("Classifica creata con successo!");
+            setTimeout(caricaClassifica, 2000); // Aspetta 2 secondi e poi carica la classifica
+        } else {
+            console.log("Classifica già esistente.");
+        }
+    });
+}
+
+// Esegui la creazione della classifica al primo avvio
+creaClassifica();
